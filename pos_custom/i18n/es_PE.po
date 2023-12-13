@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-13 16:47+0000\n"
+"PO-Revision-Date: 2023-12-13 16:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/js/sample_button.js:0
+#, python-format
+msgid "Are you is a good Python Developer ?"
+msgstr "¿Es usted un buen desarrollador de Python?"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/xml/NumpadWidget.xml:0
+#, python-format
+msgid "Backspace"
+msgstr "Retroceso"
+
+#. module: pos_custom
+#: model:ir.model,name:pos_custom.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración de Punto de Venta"
+
+#. module: pos_custom
+#: model:ir.model,name:pos_custom.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesion de Punto de Venta"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/xml/sample_button.xml:0
+#: code:addons/pos_custom/static/src/xml/sample_button.xml:0
+#: code:addons/pos_custom/static/src/xml/sample_button.xml:0
+#, python-format
+msgid "Sample Button"
+msgstr "Botón de muestra"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/js/sample_button.js:0
+#, python-format
+msgid "You pressed Yes"
+msgstr "Presionaste Sí"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/js/sample_button.js:0
+#, python-format
+msgid "You pressed No"
+msgstr "Presionaste No"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/js/sample_button.js:0
+#, python-format
+msgid "You pressed Not sure"
+msgstr "Presionaste No estoy seguro"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/js/sample_button.js:0
+#, python-format
+msgid "Yes"
+msgstr "Sí"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/js/sample_button.js:0
+#, python-format
+msgid "No"
+msgstr "No"
+
+#. module: pos_custom
+#. odoo-javascript
+#: code:addons/pos_custom/static/src/js/sample_button.js:0
+#, python-format
+msgid "Not sure"
+msgstr "No estoy seguro"
+
+#. module: pos_custom
+#: model:ir.model.fields,field_description:pos_custom.field_pos_config__visible_backspace_btn
+msgid "¿Visible button backspace?"
+msgstr "¿Se ve retroceso del botón?"

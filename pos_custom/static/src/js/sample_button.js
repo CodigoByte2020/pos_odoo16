@@ -11,9 +11,12 @@ odoo.define('pos_custom.SampleButton', function (require) {
     Los hooks son funciones que permiten a los componentes de una aplicación React acceder a ciertas características,
     como el manejo de eventos.*/
     const { useListener } = require('@web/core/utils/hooks');
+    var core = require('web.core');
+    var _t = core._t;
 
     // Extend class PosComponent
     class SampleButton extends PosComponent {
+
         setup () {
             //Initialize component
             super.setup();
@@ -21,8 +24,62 @@ odoo.define('pos_custom.SampleButton', function (require) {
             useListener('click', this.sample_button_click);
             // useListener('click', () => { console.log('*** Event of Sample Button2 ***'); });
         }
-        sample_button_click () {
+
+        async get_users () {
+            let result_one = await this.rpc({
+                model: 'res.users',
+                method: 'search_read',
+                args: [[], ['id', 'name', 'login', 'state']]
+            });
+            result_one.forEach(el => console.log('result_one: ', el));
+
+            let result_two = await this.rpc({
+                route: '/controller_example',
+                params: {}
+            });
+            result_two.forEach(el => console.log('result_two', el));
+        }
+
+        async sample_button_click () {
             console.log('*** Event of Sample Button ***')
+            //Only asynchronous methods
+            this.get_users();
+//            this.showPopup('ErrorPopup', {
+//                title: 'Error message',
+//                body: 'This is a error simple message.'
+//            });
+//
+//            const { confirmed } = await this.showPopup('ConfirmPopup', {
+//                title: 'ConfirmPopup',
+//                body: 'Are you sure want to continue ?',
+//                confirmText: 'Yes',
+//                cancelText: 'No'
+//            });
+//            console.log(confirmed ? 'Confirmed' : 'Not confirmed');
+//
+//            this.showPopup('OfflineErrorPopup', {
+//                title: 'Odoo error',
+//                body: 'This is a screen of error. !!!'
+//            });
+
+            //Destructuración de objetos:
+            //confirmed toma el valor de confirmed devuelto, selectedOption toma el valor de payload devuelto
+            const { confirmed, payload: selectedOption } = await this.showPopup('SelectionPopup', {
+                title: _t('Are you is a good Python Developer ?'),
+                list: [
+                    {'id': 0, 'label': _t('Yes'), 'item': _t('You pressed Yes')},
+                    {'id': 1, 'label': _t('No'), 'item':  _t('You pressed No')},
+                    {'id': 2, 'label': _t('Not sure'), 'item': _t('You pressed Not sure')}
+                ]
+            });
+            console.log('confirmed: ', confirmed);
+            console.log('selectedOption: ', selectedOption);
+
+//            const info = await this.env.pos.getClosePosInfo();
+//            this.showPopup('ClosePosPopup', {
+//                info: info,
+//                keepBehind: true
+//            })
         }
     }
 
