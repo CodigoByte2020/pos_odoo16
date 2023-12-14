@@ -21,7 +21,8 @@ odoo.define('pos_custom.SampleButton', function (require) {
             //Initialize component
             super.setup();
             //Escucha el evento de click. Cuando se produce un click, se llamará al método sample_button_click.
-            useListener('click', this.sample_button_click);
+//            useListener('click', this.sample_button_click);
+            useListener('click', this.render_dynamic_data);
             // useListener('click', () => { console.log('*** Event of Sample Button2 ***'); });
         }
 
@@ -81,7 +82,31 @@ odoo.define('pos_custom.SampleButton', function (require) {
 //                keepBehind: true
 //            })
         }
-    }
+
+        // *****************************************************************************************************
+
+        async render_dynamic_data () {
+            let language_list = [];
+            let languages = await this.rpc({
+                model: 'res.lang',
+                method: 'search_read',
+                args: [[]]
+            });
+            languages.forEach(language => {
+                language_list.push({
+                    'id': language.id,
+                    'label': language.name,
+                    'item': language
+                });
+            });
+            const { confirmed, payload: selectedOption } = await this.showPopup('SelectionPopup', {
+                title: 'Active languages',
+                list: language_list
+            });
+            console.log('confirmed => ', confirmed);
+            console.log('selectedOption => ', selectedOption ? selectedOption.name : selectedOption);
+        };
+    };
 
     //Add a template to the class
     SampleButton.template = 'SampleButton';
@@ -92,4 +117,4 @@ odoo.define('pos_custom.SampleButton', function (require) {
     //Registry <name_class>
     Registries.Component.add(SampleButton);
     return SampleButton;
-})
+});
