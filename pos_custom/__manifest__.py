@@ -16,7 +16,9 @@
             'pos_custom/static/src/js/sample_button.js',
             'pos_custom/static/src/xml/sample_button.xml',
             'pos_custom/static/src/js/pos_button_restrict.js',
-            'pos_custom/static/src/xml/NumpadWidget.xml'
+            'pos_custom/static/src/xml/NumpadWidget.xml',
+            'pos_custom/static/src/js/clear_all_button.js',
+            'pos_custom/static/src/xml/clear_all_button.xml'
         ]
     },
     'installable': True,
